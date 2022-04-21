@@ -1,5 +1,6 @@
 package net.personalprojects.sga.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,8 +14,14 @@ public class Estudante {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "nome", nullable = false)
 	private String nome;
+	
+	@Column(name = "sobrenome")
 	private String sobrenome;
+	
+	@Column(name = "email")
 	private String email;
 	
 	public Estudante() {
