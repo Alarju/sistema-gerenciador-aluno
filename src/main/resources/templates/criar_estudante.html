@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Gerenciador de Estudantes</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+		integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class="text-center">Adicionar Novo Estudante</h1>
+				<div class="card-body">
+					<form th:action="@{/estudantes}" th:object="${estudante}" method="POST">
+						<div class="form-group">
+							<label>Nome:</label>
+							<input type="text" name="nome" th:field="*{nome}" class="form-control"
+								placeholder="Digite o primeiro nome do estudante" />
+						</div>
+						
+						<div class="form-group">
+							<label>Sobrenome:</label>
+							<input type="text" name="sobrenome" th:field="*{sobrenome}" class="form-control"
+								placeholder="Digite o sobrenome" />
+						</div>
+						
+						<div class="form-group">
+							<label>Email:</label>
+							<input type="text" name="email" th:field="*{email}" class="form-control"
+								placeholder="example@email.com" />
+						</div>
+						<div class="footer-body">
+							<button type="submit" class="btn btn-primary">Enviar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

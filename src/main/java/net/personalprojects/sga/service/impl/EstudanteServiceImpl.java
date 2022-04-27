@@ -25,4 +25,11 @@ public class EstudanteServiceImpl implements EstudanteService{
 		return estudanteRepository.findAll();
 	}
 
+
+
+	@Override
+	public Estudante salvarEstudante(Estudante estudante) {
+		return estudanteRepository.save(estudante);
+	}
+
 }

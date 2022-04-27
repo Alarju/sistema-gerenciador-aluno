@@ -7,5 +7,7 @@ import net.personalprojects.sga.entity.Estudante;
 public interface EstudanteService {
 	
 	List<Estudante> getAllEstudantes();
+	
+	Estudante salvarEstudante(Estudante estudante);
 
 }
