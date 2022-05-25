@@ -9,5 +9,9 @@ public interface EstudanteService {
 	List<Estudante> getAllEstudantes();
 	
 	Estudante salvarEstudante(Estudante estudante);
+	
+	Estudante getEstudanteById(Long id);
+	
+	Estudante atualizarEstudante(Estudante estudante);
 
 }

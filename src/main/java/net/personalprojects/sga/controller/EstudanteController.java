@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import net.personalprojects.sga.entity.Estudante;
@@ -36,6 +37,26 @@ public class EstudanteController {
 	@PostMapping("/estudantes")
 	public String salvarEstudante(@ModelAttribute("estudante") Estudante estudante) {
 		estudanteService.salvarEstudante(estudante);
+		return "redirect:/estudantes";
+	}
+	
+	@GetMapping("estudantes/editar/{id}")
+	public String editarFormEstudante(@PathVariable Long id, Model model) {
+		model.addAttribute("estudante", estudanteService.getEstudanteById(id));
+		return "editar_estudante";
+	}
+	
+	@PostMapping("estudantes/{id}")
+	public String atualizaEstudante(@PathVariable Long id, @ModelAttribute("estudante") Estudante estudante, Model model) {
+		//buscar o estudante do banco de dados pelo id
+		Estudante existente = estudanteService.getEstudanteById(id);
+		existente.setId(id);
+		existente.setNome(estudante.getNome());
+		existente.setSobrenome(estudante.getSobrenome());
+		existente.setEmail(estudante.getEmail());
+		
+		//salvar as alterações do objeto estudante
+		estudanteService.atualizarEstudante(existente);
 		return "redirect:/estudantes";
 	}
 	

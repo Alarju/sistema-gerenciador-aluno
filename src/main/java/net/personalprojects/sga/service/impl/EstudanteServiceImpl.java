@@ -32,4 +32,18 @@ public class EstudanteServiceImpl implements EstudanteService{
 		return estudanteRepository.save(estudante);
 	}
 
+
+
+	@Override
+	public Estudante getEstudanteById(Long id) {
+		return estudanteRepository.findById(id).get();
+	}
+
+
+
+	@Override
+	public Estudante atualizarEstudante(Estudante estudante) {
+		return estudanteRepository.save(estudante);
+	}
+
 }

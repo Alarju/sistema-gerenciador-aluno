@@ -9,34 +9,57 @@
 </head>
 
 <body>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#">Sistema Gerenciador de Estudantes</a>
 
-<div class="container">
-	<div class="row">
-		<h1>Lista de Estudantes</h1>
-	</div>
-	<div class="row">
-		<div class="col-lg-3">
-			<a th:href="@{/estudantes/new}" class="btn btn-primary btn-sm mb-3">Add Estudante</a>
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/estudantes}">Gerenciador de Estudante</a>
+				</li>
+			</ul>
 		</div>
+	</nav>
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">
+			<h1>Lista de Estudantes</h1>
+		</div>
+		<div class="row">
+			<div class="col-lg-3">
+				<a th:href="@{/estudantes/new}" class="btn btn-primary btn-sm mb-3">Cadastrar Estudante</a>
+			</div>
+		</div>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>Nome do Estudante</th>
+					<th>Sobrenome do Estudante</th>
+					<th>Email do Estudante</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="estudante: ${estudantes}">
+					<td th:text="${estudante.nome}"></td>
+					<td th:text="${estudante.sobrenome}"></td>
+					<td th:text="${estudante.email}"></td>
+					<td>
+						<a th:href="@{estudantes/editar/{id}(id=${estudante.id})}"
+						class="btn btn-primary">Atualizar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-	<table class="table table-striped table-bordered">
-		<thead class="table-dark">
-			<tr>
-				<th>Nome do Estudante</th>
-				<th>Sobrenome do Estudante</th>
-				<th>Email do Estudante</th>
-				<th>Ações</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each = "estudante: ${estudantes}">
-				<td th:text = "${estudante.nome}"></td>
-				<td th:text = "${estudante.sobrenome}"></td>
-				<td th:text = "${estudante.email}"></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
 
 </body>
 

@@ -32,9 +32,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-				<h1 class="text-center">Adicionar Novo Estudante</h1>
+				<h1 class="text-center">Atualizar Estudante</h1>
 				<div class="card-body">
-					<form th:action="@{/estudantes}" th:object="${estudante}" method="POST">
+					<form th:action="@{/estudantes/{id} (id=${estudante.id})}" th:object="${estudante}" method="POST">
 						<div class="form-group">
 							<label>Nome:</label>
 							<input type="text" name="nome" th:field="*{nome}" class="form-control"
@@ -53,7 +53,7 @@
 								placeholder="example@email.com" />
 						</div>
 						<div class="footer-body">
-							<button type="submit" class="btn btn-primary">Enviar</button>
+							<button type="submit" class="btn btn-primary">Confirmar</button>
 						</div>
 					</form>
 				</div>
