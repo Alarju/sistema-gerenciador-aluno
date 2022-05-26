@@ -46,4 +46,14 @@ public class EstudanteServiceImpl implements EstudanteService{
 		return estudanteRepository.save(estudante);
 	}
 
+
+
+	@Override
+	public void deleteEstudanteById(Long id) {
+		estudanteRepository.deleteById(id);
+		
+	}
+
+
+
 }
